@@ -14,16 +14,18 @@ const schema = yup
   })
   .required();
 
+const defaultValues = {
+  email: '',
+  password: '',
+};
+
 export default function useLoginForm() {
   const {
     control,
     handleSubmit,
     formState: {errors},
   } = useForm<ILoginForm>({
-    defaultValues: {
-      email: '',
-      password: '',
-    },
+    defaultValues,
     mode: 'onChange',
     resolver: yupResolver(schema),
   });
