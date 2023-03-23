@@ -1,5 +1,6 @@
 import {PropsWithChildren} from 'react';
-import {StyleProp, TouchableWithoutFeedback, ViewStyle} from 'react-native';
+import {TouchableOpacity} from 'react-native';
+import {StyleProp, ViewStyle} from 'react-native';
 
 import {Text} from './Text';
 
@@ -14,8 +15,8 @@ export function TextLink({
   children,
 }: PropsWithChildren<ITextLinkProps>) {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <Text style={[{textDecorationLine: 'underline'}, style]}>{children}</Text>
-    </TouchableWithoutFeedback>
+    <TouchableOpacity onPress={onPress} style={[{marginBottom: -2.5}, style]}>
+      <Text style={[{textDecorationLine: 'underline'}]}>{children}</Text>
+    </TouchableOpacity>
   );
 }
