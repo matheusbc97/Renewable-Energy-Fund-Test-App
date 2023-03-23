@@ -4,15 +4,18 @@ import {
   TextInput as RNInput,
   TextInputProps as RNTextInputProps,
 } from 'react-native';
+import {COLORS} from '../constants/colors';
 
 export interface TextInputProps extends RNTextInputProps {
   label: string;
+  errorMessage?: string;
 }
 
 export function TextInput({
   label,
   placeholder = 'Type here...',
   style,
+  errorMessage,
   ...rest
 }: TextInputProps) {
   return (
@@ -31,6 +34,11 @@ export function TextInput({
         ]}
         {...rest}
       />
+      {!!errorMessage && (
+        <Text style={{color: COLORS.error, textAlign: 'right', marginTop: 3}}>
+          {errorMessage}
+        </Text>
+      )}
     </View>
   );
 }

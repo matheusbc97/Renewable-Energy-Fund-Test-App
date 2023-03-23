@@ -4,4 +4,5 @@ export const COLORS = {
   secondary: '#770FDF',
   onPrimary: '#A0A0A0',
   onPrimaryVariant: '#000',
+  error: '#FF0000',
 };
