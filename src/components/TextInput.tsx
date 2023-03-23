@@ -7,7 +7,7 @@ import {
 import {COLORS} from '../constants/colors';
 
 export interface TextInputProps extends RNTextInputProps {
-  label: string;
+  label?: string;
   errorMessage?: string;
 }
 

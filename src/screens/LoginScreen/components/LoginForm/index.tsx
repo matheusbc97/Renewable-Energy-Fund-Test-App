@@ -1,7 +1,11 @@
 import {View} from 'react-native';
 //import {useNavigation} from '@react-navigation/native';
 
-import {Button, SmartTextInput} from '../../../../components';
+import {
+  Button,
+  EmailSmartTextInput,
+  PasswordSmartTextInput,
+} from '../../../../components';
 import useLoginForm from './hooks/useLoginForm';
 //import {StackNavigationProp} from '../../../../navigation';
 
@@ -14,18 +18,15 @@ export default function LoginForm() {
   return (
     <>
       <View style={{marginVertical: 5}}>
-        <SmartTextInput
-          label="E-mail"
+        <EmailSmartTextInput
           control={control}
           name="email"
           errorMessage={errors.email?.message}
         />
 
-        <SmartTextInput
-          label="Password"
-          placeholder="Minimum 8 characters"
-          control={control}
+        <PasswordSmartTextInput
           name="password"
+          control={control}
           errorMessage={errors.password?.message}
         />
       </View>
