@@ -1,14 +1,19 @@
-import {View} from 'react-native';
+import styled from 'styled-components/native';
 
 import {TextLink, Text} from '../../../components';
 
+const Container = styled.View`
+  align-items: center;
+  margin-vertical: 13px;
+`;
+
 export default function LoginLinkToRegister() {
   return (
-    <View style={{alignItems: 'center', marginVertical: 13}}>
+    <Container>
       <Text colorVariant="onPrimary">
         Don't have an account yet?{' '}
-        <TextLink onPress={() => {}}>Sing up</TextLink> here
+        <TextLink onPress={() => {}}>Sign up</TextLink> here
       </Text>
-    </View>
+    </Container>
   );
 }

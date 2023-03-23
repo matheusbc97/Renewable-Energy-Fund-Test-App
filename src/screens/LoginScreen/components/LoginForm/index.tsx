@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import styled from 'styled-components/native';
 //import {useNavigation} from '@react-navigation/native';
 
 import {
@@ -9,6 +9,10 @@ import {
 import useLoginForm from './hooks/useLoginForm';
 //import {StackNavigationProp} from '../../../../navigation';
 
+const Container = styled.View`
+  margin-vertical: 5px;
+`;
+
 export default function LoginForm() {
   const {control, errors, handleSubmit} = useLoginForm();
   //const navigation = useNavigation<StackNavigationProp<'Login'>>();
@@ -17,7 +21,7 @@ export default function LoginForm() {
 
   return (
     <>
-      <View style={{marginVertical: 5}}>
+      <Container>
         <EmailSmartTextInput
           control={control}
           name="email"
@@ -29,7 +33,7 @@ export default function LoginForm() {
           control={control}
           errorMessage={errors.password?.message}
         />
-      </View>
+      </Container>
       <Button
         label="Login"
         style={{marginTop: 27}}
