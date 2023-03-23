@@ -1,23 +1,10 @@
 import {TextInput, TextInputProps} from './TextInput';
-import {
-  Controller,
-  Control,
-  FieldValues,
-  Path,
-  RegisterOptions,
-} from 'react-hook-form';
+import {Controller, FieldValues} from 'react-hook-form';
+import {ISmartInputProps} from '../types';
 
 export interface ISmartTextInputProps<T extends FieldValues>
-  extends TextInputProps {
-  control?: Control<T, any> | undefined;
-  name: Path<T>;
-  rules?:
-    | Omit<
-        RegisterOptions<T, Path<T>>,
-        'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
-      >
-    | undefined;
-}
+  extends TextInputProps,
+    ISmartInputProps<T> {}
 
 export function SmartTextInput<T extends FieldValues>({
   control,

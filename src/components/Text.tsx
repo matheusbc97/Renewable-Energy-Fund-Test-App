@@ -3,7 +3,11 @@ import React, {PropsWithChildren} from 'react';
 import {COLORS} from '../constants/colors';
 
 export type ITextVariant = 'title' | 'text';
-export type IColorVariant = 'onPrimary' | 'onPrimaryVariant' | 'onSecondary';
+export type IColorVariant =
+  | 'onPrimary'
+  | 'onPrimaryVariant'
+  | 'onSecondary'
+  | 'error';
 
 export interface ITextProps {
   variant?: ITextVariant;
@@ -42,6 +46,9 @@ export function Text({
         break;
       case 'onSecondary':
         textStyle = {color: '#FFF'};
+        break;
+      case 'error':
+        textStyle = {color: COLORS.error};
         break;
       default:
         textStyle = {};

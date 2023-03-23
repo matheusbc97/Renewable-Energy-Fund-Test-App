@@ -1,9 +1,19 @@
-import {View, Text} from 'react-native';
+import {SafeAreaView} from 'react-native';
+import {IStackScreenProps} from '../../navigation';
 
-export function RegisterScreen() {
+import RegisterSubHeader from './components/RegisterSubHeader';
+
+import RegisterForm from './components/RegisterForm';
+import RegisterLinkToLogin from './components/RegisterLinkToLogin';
+
+export function RegisterScreen({}: IStackScreenProps<'Register'>) {
   return (
-    <View>
-      <Text>Register Screen</Text>
-    </View>
+    <SafeAreaView style={{paddingHorizontal: 20}}>
+      <RegisterSubHeader />
+
+      <RegisterForm />
+
+      <RegisterLinkToLogin />
+    </SafeAreaView>
   );
 }

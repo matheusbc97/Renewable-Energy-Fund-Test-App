@@ -1,10 +1,11 @@
 import {
   View,
-  Text,
   TextInput as RNInput,
   TextInputProps as RNTextInputProps,
 } from 'react-native';
-import {COLORS} from '../constants/colors';
+
+import ErrorText from './ErrorText';
+import {Text} from './Text';
 
 export interface TextInputProps extends RNTextInputProps {
   label?: string;
@@ -34,11 +35,7 @@ export function TextInput({
         ]}
         {...rest}
       />
-      {!!errorMessage && (
-        <Text style={{color: COLORS.error, textAlign: 'right', marginTop: 3}}>
-          {errorMessage}
-        </Text>
-      )}
+      {!!errorMessage && <ErrorText>{errorMessage}</ErrorText>}
     </View>
   );
 }
