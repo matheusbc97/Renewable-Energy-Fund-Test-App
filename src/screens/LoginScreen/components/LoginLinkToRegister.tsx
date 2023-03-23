@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
+import {useNavigation} from '@react-navigation/native';
 
 import {TextLink, Text} from '../../../components';
+import {StackNavigationProp} from '../../../navigation';
 
 const Container = styled.View`
   align-items: center;
@@ -8,11 +10,17 @@ const Container = styled.View`
 `;
 
 export default function LoginLinkToRegister() {
+  const navigation = useNavigation<StackNavigationProp<'Login'>>();
+
+  const goToRegister = () => {
+    navigation.navigate('Register');
+  };
+
   return (
     <Container>
       <Text colorVariant="onPrimary">
         Don't have an account yet?{' '}
-        <TextLink onPress={() => {}}>Sign up</TextLink> here
+        <TextLink onPress={goToRegister}>Sign up</TextLink> here
       </Text>
     </Container>
   );
