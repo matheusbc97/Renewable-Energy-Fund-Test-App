@@ -1,4 +1,4 @@
-import {View, SafeAreaView, StyleProp, ViewStyle, FlatList} from 'react-native';
+import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {Text} from '../../../components';
 import {COLORS} from '../../../constants/colors';
@@ -32,7 +32,7 @@ export function FundsList() {
       <FundsFlatList
         data={[1, 2, 3, 4, 5, 6, 7, 8]}
         horizontal
-        renderItem={({item}) => (
+        renderItem={() => (
           <FundListItemContainer>
             <Text variant="title-small">Wind Fund</Text>
             <View style={{flex: 1}} />
