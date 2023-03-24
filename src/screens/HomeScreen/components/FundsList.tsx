@@ -1,35 +1,43 @@
 import {View, SafeAreaView, StyleProp, ViewStyle, FlatList} from 'react-native';
+import styled from 'styled-components/native';
 import {Text} from '../../../components';
 import {COLORS} from '../../../constants/colors';
+
+const FundsTitle = styled(Text)`
+  padding-horizontal: 20;
+  margin-top: 20;
+`;
+
+const FundsFlatList = styled.FlatList`
+  padding-horizontal: 12;
+  margin-top: 15;
+`;
+
+const FundListItemContainer = styled.View`
+  border-width: 1px;
+  border-color: ${COLORS.border};
+  margin-horizontal: 6px;
+  width: 140px;
+  height: 145px;
+  padding: 12px;
+  border-radius: 3px;
+`;
 
 export function FundsList() {
   return (
     <View>
-      <Text
-        variant="title"
-        colorVariant="onPrimaryVariant"
-        style={{paddingHorizontal: 20, marginTop: 20}}>
+      <FundsTitle variant="title" colorVariant="onPrimaryVariant">
         Funds
-      </Text>
-      <FlatList
+      </FundsTitle>
+      <FundsFlatList
         data={[1, 2, 3, 4, 5, 6, 7, 8]}
         horizontal
-        style={{paddingHorizontal: 12, marginTop: 15}}
         renderItem={({item}) => (
-          <View
-            style={{
-              borderWidth: 1,
-              borderColor: COLORS.border,
-              marginHorizontal: 6,
-              width: 140,
-              height: 145,
-              padding: 12,
-              borderRadius: 3,
-            }}>
+          <FundListItemContainer>
             <Text variant="title-small">Wind Fund</Text>
             <View style={{flex: 1}} />
             <Text colorVariant="onPrimaryVariant">$1,245.23</Text>
-          </View>
+          </FundListItemContainer>
         )}
       />
     </View>

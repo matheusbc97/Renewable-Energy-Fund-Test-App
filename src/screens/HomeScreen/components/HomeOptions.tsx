@@ -1,4 +1,4 @@
-import {View, Text, FlatList, StyleProp, ViewStyle} from 'react-native';
+import {View, Text, StyleProp, ViewStyle} from 'react-native';
 import {COLORS} from '../../../constants/colors';
 
 interface HomeOptionProps {

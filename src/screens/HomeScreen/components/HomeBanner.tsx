@@ -1,36 +1,49 @@
-import {View} from 'react-native';
+import {SvgXml} from 'react-native-svg';
+import styled from 'styled-components/native';
+
 import {COLORS} from '../../../constants/colors';
 import {Text} from '../../../components';
-import {SvgXml} from 'react-native-svg';
 import {BusinessStatics} from '../../../../assets/business-statistics';
+
+const HomeBannerContainer = styled.View`
+  background-color: ${COLORS.secondary};
+  margin-horizontal: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  flex-direction: row;
+  padding-horizontal: 20px;
+  align-items: center;
+`;
+
+const BannerLeftContainer = styled.View`
+  flex: 1;
+  padding-vertical: 20px;
+`;
+
+const Description = styled(Text)`
+  margin-top: 10px;
+`;
+
+const BannerRightContainer = styled.View`
+  flex: 1;
+  align-items: flex-end;
+`;
 
 export default function HomeBanner() {
   return (
-    <View
-      style={{
-        backgroundColor: COLORS.secondary,
-        marginHorizontal: 20,
-        marginTop: 20,
-        borderRadius: 10,
-        flexDirection: 'row',
-        paddingHorizontal: 20,
-        alignItems: 'center',
-      }}>
-      <View style={{flex: 1, paddingVertical: 20}}>
+    <HomeBannerContainer>
+      <BannerLeftContainer>
         <Text colorVariant="onSecondary" variant="title">
           Learn more about carbon credits
         </Text>
-        <Text
-          variant="text-small"
-          colorVariant="onSecondary"
-          style={{marginTop: 10}}>
+        <Description variant="text-small" colorVariant="onSecondary">
           Check out our top tips
-        </Text>
-      </View>
+        </Description>
+      </BannerLeftContainer>
 
-      <View style={{flex: 1, alignItems: 'flex-end'}}>
+      <BannerRightContainer>
         <SvgXml xml={BusinessStatics} />
-      </View>
-    </View>
+      </BannerRightContainer>
+    </HomeBannerContainer>
   );
 }

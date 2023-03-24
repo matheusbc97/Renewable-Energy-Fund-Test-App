@@ -8,3 +8,5 @@ export * from './smart-text-inputs/PasswordSmartTextInput';
 export * from './CheckBoxInput';
 export * from './SmartCheckBoxInput';
 export * from './ErrorText';
+export * from './Avatar';
+export * from './HorizontalSeparator';
