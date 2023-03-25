@@ -2,7 +2,13 @@ import {StyleProp, Text as RNText, TextStyle} from 'react-native';
 import React, {PropsWithChildren} from 'react';
 import {COLORS} from '../constants/colors';
 
-export type ITextVariant = 'title' | 'text' | 'title-small' | 'text-small';
+export type ITextVariant =
+  | 'title'
+  | 'text'
+  | 'title-small'
+  | 'text-small'
+  | 'title-big';
+
 export type IColorVariant =
   | 'onPrimary'
   | 'onPrimaryVariant'
@@ -29,6 +35,9 @@ export function Text({
     switch (variant) {
       case 'title':
         textStyle = {fontSize: 18, fontWeight: 'bold'};
+        break;
+      case 'title-big':
+        textStyle = {fontSize: 24, fontWeight: 'bold'};
         break;
       case 'title-small':
         textStyle = {fontSize: 14, fontWeight: 'bold'};
