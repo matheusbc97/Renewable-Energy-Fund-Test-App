@@ -5,7 +5,7 @@ export function Avatar() {
   return (
     <View
       style={{
-        backgroundColor: COLORS.onPrimary,
+        backgroundColor: COLORS.onBackground,
         width: 32,
         height: 32,
         borderRadius: 16,

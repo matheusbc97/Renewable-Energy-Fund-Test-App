@@ -32,7 +32,7 @@ export default function HomeHeader() {
       <HomeHeaderTopContainer>
         <Avatar />
 
-        <Text colorVariant="onPrimaryVariant" variant="title-small">
+        <Text colorVariant="onBackgroundVariant" variant="title-small">
           Account: $1,457.23
         </Text>
 

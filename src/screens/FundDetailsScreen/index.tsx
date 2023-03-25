@@ -13,10 +13,10 @@ const Container = styled.View`
 export const Info = () => {
   return (
     <Container>
-      <Text variant="title-big" colorVariant="onPrimaryVariant">
+      <Text variant="title-big" colorVariant="onBackgroundVariant">
         $18.23
       </Text>
-      <Text variant="title-big" colorVariant="onPrimaryVariant">
+      <Text variant="title-big" colorVariant="onBackgroundVariant">
         2022
       </Text>
     </Container>
@@ -50,10 +50,10 @@ export function FundDetailsScreen() {
           paddingTop: 26,
           justifyContent: 'space-between',
         }}>
-        <Text variant="title-big" colorVariant="onPrimaryVariant">
+        <Text variant="title-big" colorVariant="onBackgroundVariant">
           $18.23
         </Text>
-        <Text variant="title-big" colorVariant="onPrimaryVariant">
+        <Text variant="title-big" colorVariant="onBackgroundVariant">
           2022
         </Text>
       </View>

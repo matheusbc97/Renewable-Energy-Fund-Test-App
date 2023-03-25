@@ -27,9 +27,7 @@ const Stack = createNativeStackNavigator<StackParams>();
 function AppNavigator() {
   return (
     <NavigationContainer theme={AppTheme}>
-      <Stack.Navigator
-        initialRouteName="FundDetails"
-        screenOptions={{title: ''}}>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{title: ''}}>
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen

@@ -10,7 +10,7 @@ const Container = styled.View`
 export default function LoginSubHeader() {
   return (
     <Container>
-      <Text variant="title" colorVariant="onPrimaryVariant">
+      <Text variant="title" colorVariant="onBackgroundVariant">
         Login
       </Text>
     </Container>

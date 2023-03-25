@@ -10,8 +10,8 @@ export type ITextVariant =
   | 'title-big';
 
 export type IColorVariant =
-  | 'onPrimary'
-  | 'onPrimaryVariant'
+  | 'onBackground'
+  | 'onBackgroundVariant'
   | 'onSecondary'
   | 'error';
 
@@ -51,11 +51,11 @@ export function Text({
     }
 
     switch (colorVariant) {
-      case 'onPrimary':
-        textStyle = {...textStyle, color: COLORS.onPrimary};
+      case 'onBackground':
+        textStyle = {...textStyle, color: COLORS.onBackground};
         break;
-      case 'onPrimaryVariant':
-        textStyle = {...textStyle, color: COLORS.onPrimaryVariant};
+      case 'onBackgroundVariant':
+        textStyle = {...textStyle, color: COLORS.onBackgroundVariant};
         break;
       case 'onSecondary':
         textStyle = {...textStyle, color: '#FFF'};

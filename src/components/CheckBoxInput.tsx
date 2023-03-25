@@ -26,19 +26,19 @@ export default function CheckBoxInput({
             <Ionicons
               name="square-outline"
               size={24}
-              color={COLORS.onPrimary}
+              color={COLORS.onBackground}
             />
           )}
           {checked && (
             <Ionicons
               name="checkbox-outline"
               size={24}
-              color={COLORS.onPrimary}
+              color={COLORS.onBackground}
             />
           )}
         </TouchableOpacity>
 
-        <Text colorVariant="onPrimary" style={{flex: 1, marginLeft: 10}}>
+        <Text colorVariant="onBackground" style={{flex: 1, marginLeft: 10}}>
           {children}
         </Text>
       </View>

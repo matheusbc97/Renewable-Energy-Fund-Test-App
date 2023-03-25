@@ -26,7 +26,7 @@ const FundListItemContainer = styled.View`
 export function FundsList() {
   return (
     <View>
-      <FundsTitle variant="title" colorVariant="onPrimaryVariant">
+      <FundsTitle variant="title" colorVariant="onBackgroundVariant">
         Funds
       </FundsTitle>
       <FundsFlatList
@@ -36,7 +36,7 @@ export function FundsList() {
           <FundListItemContainer>
             <Text variant="title-small">Wind Fund</Text>
             <View style={{flex: 1}} />
-            <Text colorVariant="onPrimaryVariant">$1,245.23</Text>
+            <Text colorVariant="onBackgroundVariant">$1,245.23</Text>
           </FundListItemContainer>
         )}
       />

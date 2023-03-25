@@ -6,7 +6,7 @@ import {Text} from '../../../components';
 import {BusinessStatics} from '../../../../assets/business-statistics';
 
 const HomeBannerContainer = styled.View`
-  background-color: ${COLORS.secondary};
+  background-color: ${COLORS.primary};
   margin-horizontal: 20px;
   margin-top: 20px;
   border-radius: 10px;
