@@ -10,3 +10,4 @@ export * from './SmartCheckBoxInput';
 export * from './ErrorText';
 export * from './Avatar';
 export * from './HorizontalSeparator';
+export * from './LabeledValueWithInfoButton';
