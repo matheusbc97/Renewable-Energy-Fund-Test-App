@@ -1,15 +1,21 @@
-import {View} from 'react-native';
+import styled from 'styled-components/native';
+
 import {COLORS} from '../constants/colors';
+import {SvgIcon} from './SvgIcon';
+
+const AvatarContainer = styled.View`
+  background-color: ${COLORS.info};
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
+`;
 
 export function Avatar() {
   return (
-    <View
-      style={{
-        backgroundColor: COLORS.info,
-        width: 32,
-        height: 32,
-        borderRadius: 16,
-      }}
-    />
+    <AvatarContainer>
+      <SvgIcon name="Profile" />
+    </AvatarContainer>
   );
 }
