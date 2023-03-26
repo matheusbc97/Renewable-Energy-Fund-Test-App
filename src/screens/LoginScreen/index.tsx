@@ -8,7 +8,7 @@ import LoginLinkToRegister from './components/LoginLinkToRegister';
 
 export function LoginScreen({}: IStackScreenProps<'Login'>) {
   return (
-    <SafeAreaView style={{paddingHorizontal: 20}}>
+    <SafeAreaView style={{marginHorizontal: 20}}>
       <LoginSubHeader />
 
       <LoginForm />

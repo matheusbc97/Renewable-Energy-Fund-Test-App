@@ -1,13 +1,10 @@
+import {useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {TouchableOpacity} from 'react-native';
 import {SvgIcon} from '../../../components';
 import {COLORS} from '../../../constants/colors';
 
-import {
-  FundDetailsScreen,
-  HomeScreen,
-  LoginScreen,
-  RegisterScreen,
-} from '../../../screens';
+import {FundDetailsScreen, LoginScreen, RegisterScreen} from '../../../screens';
 import BottomTabsNavigator from '../BottomTabsNavigator';
 
 import {StackParams} from './types/StackParams';
@@ -19,17 +16,24 @@ interface RenderLeftIconProps {
   labelVisible?: boolean;
 }
 
-const renderLeftIcon = (_: RenderLeftIconProps) => {
-  return <SvgIcon name="ArrowLeft" color={COLORS.onBackground} />;
+const LeftIcon = ({}: RenderLeftIconProps) => {
+  const navigation = useNavigation();
+
+  if (navigation.canGoBack() === false) {
+    return null;
+  }
+  return (
+    <TouchableOpacity onPress={() => navigation.goBack()}>
+      <SvgIcon name="ArrowLeft" color={COLORS.onBackground} />
+    </TouchableOpacity>
+  );
 };
 
 const Stack = createNativeStackNavigator<StackParams>();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator
-      initialRouteName="Login"
-      screenOptions={{title: '', headerLeft: renderLeftIcon}}>
+    <Stack.Navigator screenOptions={{title: '', headerLeft: LeftIcon}}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen
