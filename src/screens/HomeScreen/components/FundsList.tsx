@@ -1,7 +1,9 @@
+import {useNavigation} from '@react-navigation/native';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {Text} from '../../../components';
 import {COLORS} from '../../../constants/colors';
+import {StackNavigationProp} from '../../../navigation';
 
 const FundsTitle = styled(Text)`
   padding-horizontal: 20;
@@ -13,7 +15,7 @@ const FundsFlatList = styled.FlatList`
   margin-top: 15;
 `;
 
-const FundListItemContainer = styled.View`
+const FundListItemContainer = styled.TouchableOpacity`
   border-width: 1px;
   border-color: ${COLORS.border};
   margin-horizontal: 6px;
@@ -24,6 +26,8 @@ const FundListItemContainer = styled.View`
 `;
 
 export function FundsList() {
+  const navigation = useNavigation<StackNavigationProp<'Home'>>();
+
   return (
     <View>
       <FundsTitle variant="title">Funds</FundsTitle>
@@ -31,7 +35,8 @@ export function FundsList() {
         data={[1, 2, 3, 4, 5, 6, 7, 8]}
         horizontal
         renderItem={() => (
-          <FundListItemContainer>
+          <FundListItemContainer
+            onPress={() => navigation.navigate('FundDetails')}>
             <Text variant="title-small">Wind Fund</Text>
             <View style={{flex: 1}} />
             <Text>$1,245.23</Text>

@@ -11,7 +11,6 @@ export interface IButtonProps {
 }
 
 function getButtonBackgroundColor(variant: IButtonVariant) {
-  console.log(variant);
   switch (variant) {
     case 'primary':
       return COLORS.primary;

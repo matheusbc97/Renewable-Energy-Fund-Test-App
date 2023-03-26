@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-//import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import {
   Button,
@@ -7,7 +7,7 @@ import {
   PasswordSmartTextInput,
 } from '../../../../components';
 import useLoginForm from './hooks/useLoginForm';
-//import {StackNavigationProp} from '../../../../navigation';
+import {StackNavigationProp} from '../../../../navigation';
 
 const Container = styled.View`
   margin-vertical: 5px;
@@ -15,9 +15,11 @@ const Container = styled.View`
 
 export default function LoginForm() {
   const {control, errors, handleSubmit} = useLoginForm();
-  //const navigation = useNavigation<StackNavigationProp<'Login'>>();
+  const navigation = useNavigation<StackNavigationProp<'Login'>>();
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = () => {
+    navigation.replace('BottomTabsNavigator');
+  };
 
   return (
     <>

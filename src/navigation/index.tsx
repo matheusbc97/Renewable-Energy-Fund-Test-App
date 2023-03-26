@@ -1,2 +1,2 @@
 export {default} from './AppNavigator';
-export * from './types/StackScreenProps';
+export * from './navigators/StackNavigator/types/StackScreenProps';

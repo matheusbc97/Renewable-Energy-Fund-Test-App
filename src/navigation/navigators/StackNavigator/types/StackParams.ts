@@ -1,6 +1,6 @@
 export type StackParams = {
   Login: undefined;
   Register: undefined;
-  Home: undefined;
+  BottomTabsNavigator: undefined;
   FundDetails: undefined;
 };

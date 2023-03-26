@@ -1,4 +1,4 @@
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import {FundsList} from './components/FundsList';
 import HomeBanner from './components/HomeBanner';
 
@@ -8,10 +8,12 @@ import HomeOptions from './components/HomeOptions';
 export function HomeScreen() {
   return (
     <SafeAreaView>
-      <HomeHeader />
-      <FundsList />
-      <HomeBanner />
-      <HomeOptions />
+      <ScrollView>
+        <HomeHeader />
+        <FundsList />
+        <HomeBanner />
+        <HomeOptions />
+      </ScrollView>
     </SafeAreaView>
   );
 }

@@ -11,3 +11,4 @@ export * from './ErrorText';
 export * from './Avatar';
 export * from './HorizontalSeparator';
 export * from './LabeledValueWithInfoButton';
+export * from './SvgIcon';

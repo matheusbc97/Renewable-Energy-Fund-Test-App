@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import {COLORS} from '../../../constants/colors';
 import {Text} from '../../../components';
-import {BusinessStatics} from '../../../../assets/business-statistics';
+import {BusinessStatics} from '../../../../assets/icons/business-statistics';
 
 const HomeBannerContainer = styled.View`
   background-color: ${COLORS.primary};
