@@ -12,6 +12,7 @@ export type ITextVariant =
 export type IColorVariant =
   | 'onBackground'
   | 'onBackgroundVariant'
+  | 'onPrimaryVariant'
   | 'onSecondary'
   | 'error';
 
@@ -63,6 +64,8 @@ export function Text({
       case 'error':
         textStyle = {...textStyle, color: COLORS.error};
         break;
+      case 'onPrimaryVariant':
+        textStyle = {...textStyle, color: COLORS.onPrimaryVariant};
     }
 
     return textStyle;

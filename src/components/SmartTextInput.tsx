@@ -1,9 +1,9 @@
-import {TextInput, TextInputProps} from './TextInput';
+import {TextInput, ITextInputProps} from './TextInput';
 import {Controller, FieldValues} from 'react-hook-form';
 import {ISmartInputProps} from '../types';
 
 export interface ISmartTextInputProps<T extends FieldValues>
-  extends TextInputProps,
+  extends ITextInputProps,
     ISmartInputProps<T> {}
 
 export function SmartTextInput<T extends FieldValues>({

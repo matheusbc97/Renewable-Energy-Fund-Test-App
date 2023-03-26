@@ -8,9 +8,10 @@ import {COLORS} from '../constants/colors';
 import ErrorText from './ErrorText';
 import {Text} from './Text';
 
-export interface TextInputProps extends RNTextInputProps {
+export interface ITextInputProps extends RNTextInputProps {
   label?: string;
   errorMessage?: string;
+  rightComponent?: React.ReactNode;
 }
 
 export function TextInput({
@@ -18,25 +19,36 @@ export function TextInput({
   placeholder = 'Type here...',
   style,
   errorMessage,
+  rightComponent,
   ...rest
-}: TextInputProps) {
+}: ITextInputProps) {
   return (
     <View style={{marginVertical: 10}}>
       <Text style={{color: COLORS.onBackgroundVariant}}>{label}</Text>
-      <RNInput
-        placeholder={placeholder}
-        style={[
-          {
-            backgroundColor: COLORS.info,
-            paddingVertical: 10,
-            paddingHorizontal: 15,
-            marginTop: 5,
-            color: COLORS.onBackground,
-          },
-          style,
-        ]}
-        {...rest}
-      />
+      <View
+        style={{
+          flexDirection: 'row',
+          backgroundColor: COLORS.info,
+          marginTop: 5,
+          alignItems: 'center',
+          borderRadius: 4,
+        }}>
+        <RNInput
+          placeholder={placeholder}
+          style={[
+            {
+              paddingVertical: 10,
+              paddingLeft: 15,
+              paddingRight: rightComponent ? 0 : 15,
+              color: COLORS.onBackground,
+              flex: 1,
+            },
+            style,
+          ]}
+          {...rest}
+        />
+        {rightComponent}
+      </View>
       {!!errorMessage && <ErrorText>{errorMessage}</ErrorText>}
     </View>
   );
