@@ -26,7 +26,7 @@ export type IGetTextStyle = () => TextStyle;
 export function Text({
   children,
   variant,
-  colorVariant,
+  colorVariant = 'onBackground',
   style,
 }: PropsWithChildren<ITextProps>) {
   const getTextStyle: IGetTextStyle = () => {
