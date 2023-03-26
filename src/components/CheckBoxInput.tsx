@@ -38,7 +38,9 @@ export default function CheckBoxInput({
           )}
         </TouchableOpacity>
 
-        <Text colorVariant="onBackground" style={{flex: 1, marginLeft: 10}}>
+        <Text
+          colorVariant="onBackgroundVariant"
+          style={{flex: 1, marginLeft: 10}}>
           {children}
         </Text>
       </View>

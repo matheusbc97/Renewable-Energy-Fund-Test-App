@@ -2,6 +2,7 @@ import {Dimensions, View} from 'react-native';
 import {Text} from '../../../components';
 import {LineChart} from 'react-native-chart-kit';
 import styled from 'styled-components/native';
+import {COLORS} from '../../../constants/colors';
 
 const Container = styled.View`
   flex-direction: row;
@@ -50,17 +51,13 @@ export default function FundDetailsGraphInfo() {
           paddingTop: 26,
           justifyContent: 'space-between',
         }}>
-        <Text variant="title-big" colorVariant="onBackgroundVariant">
-          $18.23
-        </Text>
-        <Text variant="title-big" colorVariant="onBackgroundVariant">
-          2022
-        </Text>
+        <Text variant="title-big">$18.23</Text>
+        <Text variant="title-big">2022</Text>
       </View>
 
       <LineChart
         data={{
-          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+          labels: ['1h', '1d', '1w', '1m', '1y', 'All'],
           datasets: [
             {
               data: dataSetMock,
@@ -79,8 +76,8 @@ export default function FundDetailsGraphInfo() {
           backgroundGradientFrom: '#FFF',
           backgroundGradientTo: '#FFF',
           decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => 'green',
-          labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+          color: (opacity = 1) => COLORS.secondary,
+          labelColor: (opacity = 1) => COLORS.onBackgroundVariant,
           labels: [],
           propsForBackgroundLines: {
             color: '#FFF',

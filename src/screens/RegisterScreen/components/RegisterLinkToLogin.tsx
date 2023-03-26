@@ -18,7 +18,7 @@ export default function RegisterLinkToLogin() {
 
   return (
     <Container>
-      <Text colorVariant="onBackground">
+      <Text colorVariant="onBackgroundVariant">
         Already have an account?{' '}
         <TextLink onPress={goToLogin}>Log in here</TextLink>
       </Text>

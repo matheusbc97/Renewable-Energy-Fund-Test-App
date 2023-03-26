@@ -1,5 +1,6 @@
 import {FlatList, ScrollView, View} from 'react-native';
 import styled from 'styled-components/native';
+
 import {Text, TextLink} from '../../../components';
 import {COLORS} from '../../../constants/colors';
 
@@ -8,12 +9,19 @@ const FundBreakdownSectionTitle = styled(Text)`
   margin-horizontal: 10px;
 `;
 
+const fundBreakdownSectionTitles = [
+  'Highlighted',
+  'Value',
+  'Vintage',
+  'Registry',
+];
+
 export default function FundBreakDown() {
   return (
     <View style={{marginTop: 50}}>
       <Text
         variant="title-big"
-        colorVariant="onBackgroundVariant"
+        colorVariant="onBackground"
         style={{paddingHorizontal: 20}}>
         Fund Breakdown
       </Text>
@@ -21,10 +29,11 @@ export default function FundBreakDown() {
       <ScrollView
         horizontal
         style={{flexDirection: 'row', marginTop: 20, marginHorizontal: 10}}>
-        <FundBreakdownSectionTitle>Highlighted</FundBreakdownSectionTitle>
-        <FundBreakdownSectionTitle>Value</FundBreakdownSectionTitle>
-        <FundBreakdownSectionTitle>Vintage</FundBreakdownSectionTitle>
-        <FundBreakdownSectionTitle>Registry</FundBreakdownSectionTitle>
+        {fundBreakdownSectionTitles.map((title, index) => (
+          <FundBreakdownSectionTitle key={title}>
+            {title}
+          </FundBreakdownSectionTitle>
+        ))}
       </ScrollView>
 
       <FlatList

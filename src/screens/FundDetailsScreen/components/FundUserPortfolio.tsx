@@ -1,5 +1,6 @@
-import {Button, Text} from '../../../components';
 import styled from 'styled-components/native';
+
+import {Button, Text} from '../../../components';
 import {COLORS} from '../../../constants/colors';
 
 const Container = styled.View`

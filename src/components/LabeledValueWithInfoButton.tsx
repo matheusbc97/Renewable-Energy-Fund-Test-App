@@ -15,7 +15,7 @@ export function LabeledValueWithInfoButton({
 }: ILabeledValueWithInfoButtonProps) {
   return (
     <View style={style}>
-      <Text colorVariant="onBackground">{label}</Text>
+      <Text colorVariant="onBackgroundVariant">{label}</Text>
       <Text>{value}</Text>
     </View>
   );

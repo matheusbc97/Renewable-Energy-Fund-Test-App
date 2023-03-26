@@ -8,4 +8,5 @@ export const COLORS = {
   onSecondary: '#FFF',
   error: '#FF0000',
   border: '#E6E6E6',
+  info: '#F4F4F4',
 };

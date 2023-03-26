@@ -32,9 +32,7 @@ export default function HomeHeader() {
       <HomeHeaderTopContainer>
         <Avatar />
 
-        <Text colorVariant="onBackgroundVariant" variant="title-small">
-          Account: $1,457.23
-        </Text>
+        <Text variant="title-small">Account: $1,457.23</Text>
 
         <SvgXml xml={notificationSvg} width="20" height="21" />
       </HomeHeaderTopContainer>
@@ -42,7 +40,7 @@ export default function HomeHeader() {
       <HomeHeaderBottomContainer>
         <View style={{flex: 1}}>
           <Text>Portfolio</Text>
-          <Text>$1,245. 23</Text>
+          <Text variant="title-big">$1,245. 23</Text>
         </View>
 
         <View>

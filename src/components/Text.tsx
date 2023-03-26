@@ -40,7 +40,7 @@ export function Text({
         textStyle = {fontSize: 24, fontWeight: 'bold'};
         break;
       case 'title-small':
-        textStyle = {fontSize: 14, fontWeight: 'bold'};
+        textStyle = {fontSize: 12, fontWeight: 'bold'};
         break;
       case 'text':
         textStyle = {fontSize: 14, fontWeight: 'normal'};

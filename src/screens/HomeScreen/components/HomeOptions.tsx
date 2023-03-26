@@ -1,25 +1,25 @@
-import {View, Text, StyleProp, ViewStyle} from 'react-native';
+import {View, StyleProp, ViewStyle} from 'react-native';
 import {COLORS} from '../../../constants/colors';
+import {Text} from '../../../components';
+import styled from 'styled-components/native';
 
-interface HomeOptionProps {
+interface IHomeOptionProps {
   style?: StyleProp<ViewStyle>;
 }
+const OptionContainer = styled.View`
+  background-color: ${COLORS.info};
+  height: 215px;
+  flex: 1;
+  padding-horizontal: 10px;
+  padding-top: 20px;
+  border-radius: 10px;
+`;
 
-function HomeOption({style}: HomeOptionProps) {
+function HomeOption({style}: IHomeOptionProps) {
   return (
-    <View
-      style={[
-        {
-          backgroundColor: COLORS.border,
-          height: 215,
-          flex: 1,
-          padding: 10,
-          borderRadius: 10,
-        },
-        style,
-      ]}>
+    <OptionContainer style={style}>
       <Text>Why should you invest here?</Text>
-    </View>
+    </OptionContainer>
   );
 }
 

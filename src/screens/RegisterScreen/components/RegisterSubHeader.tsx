@@ -10,9 +10,7 @@ const Container = styled.View`
 export default function RegisterSubHeader() {
   return (
     <Container>
-      <Text variant="title" colorVariant="onBackgroundVariant">
-        Create your account
-      </Text>
+      <Text variant="title">Create your account</Text>
     </Container>
   );
 }

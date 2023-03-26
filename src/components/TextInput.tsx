@@ -3,6 +3,7 @@ import {
   TextInput as RNInput,
   TextInputProps as RNTextInputProps,
 } from 'react-native';
+import {COLORS} from '../constants/colors';
 
 import ErrorText from './ErrorText';
 import {Text} from './Text';
@@ -21,15 +22,16 @@ export function TextInput({
 }: TextInputProps) {
   return (
     <View style={{marginVertical: 10}}>
-      <Text style={{color: '#A0A0A0'}}>{label}</Text>
+      <Text style={{color: COLORS.onBackgroundVariant}}>{label}</Text>
       <RNInput
         placeholder={placeholder}
         style={[
           {
-            backgroundColor: '#F4F4F4',
+            backgroundColor: COLORS.info,
             paddingVertical: 10,
             paddingHorizontal: 15,
             marginTop: 5,
+            color: COLORS.onBackground,
           },
           style,
         ]}

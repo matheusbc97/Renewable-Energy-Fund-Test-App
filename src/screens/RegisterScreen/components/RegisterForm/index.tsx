@@ -61,8 +61,7 @@ export default function RegisterForm() {
           name="agreedToTerms"
           errorMessage={errors.agreedToTerms?.message}>
           I am over 18 years of age and I have read and agree to the{' '}
-          <Text colorVariant="onBackgroundVariant">Terms of Service</Text> and{' '}
-          <Text colorVariant="onBackgroundVariant">Privacy policy</Text>.
+          <Text>Terms of Service</Text> and <Text>Privacy policy</Text>.
         </SmartCheckBoxInput>
       </Container>
       <CreateAccountButton

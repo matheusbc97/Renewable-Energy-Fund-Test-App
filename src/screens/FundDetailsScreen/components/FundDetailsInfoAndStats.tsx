@@ -20,9 +20,7 @@ const LabeledValue = styled(LabeledValueWithInfoButton)`
 export default function FundDetailsInfoAndStats() {
   return (
     <Container>
-      <Text variant="title-big" colorVariant="onBackgroundVariant">
-        Info & Stats
-      </Text>
+      <Text variant="title-big">Info & Stats</Text>
       <LabeledValueRow>
         <LabeledValue label="AUM" value="$430.88m" />
         <LabeledValue label="Issue Date" value="$430.88m" />
