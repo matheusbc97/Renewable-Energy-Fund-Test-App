@@ -34,11 +34,11 @@ export function Text({
     let textStyle: TextStyle = {};
 
     switch (variant) {
-      case 'title':
-        textStyle = {fontSize: 18, fontFamily: 'Sora600'};
-        break;
       case 'title-big':
         textStyle = {fontSize: 24, fontFamily: 'Sora600'};
+        break;
+      case 'title':
+        textStyle = {fontSize: 18, fontFamily: 'Sora600'};
         break;
       case 'title-small':
         textStyle = {fontSize: 12, fontFamily: 'Sora600'};

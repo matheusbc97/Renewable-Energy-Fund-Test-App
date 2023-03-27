@@ -40,6 +40,7 @@ export default function CheckBoxInput({
 
         <Text
           colorVariant="onBackgroundVariant"
+          variant="text-small"
           style={{flex: 1, marginLeft: 10}}>
           {children}
         </Text>
