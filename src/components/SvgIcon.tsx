@@ -1,3 +1,4 @@
+import {StyleProp, ViewStyle} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
 import {ARROW_LEFT_ICON} from '../../assets/icons/arrow-left-icon';
@@ -20,6 +21,7 @@ export interface SvgIconProps {
   color?: string;
   size?: number;
   name: SvgIconName;
+  style?: StyleProp<ViewStyle>;
 }
 
 function getSvgIcon(routeName: SvgIconName) {
@@ -39,6 +41,6 @@ function getSvgIcon(routeName: SvgIconName) {
   }
 }
 
-export function SvgIcon({name, color}: SvgIconProps) {
-  return <SvgXml xml={getSvgIcon(name)} fill={color} />;
+export function SvgIcon({name, color, style}: SvgIconProps) {
+  return <SvgXml xml={getSvgIcon(name)} fill={color} style={style} />;
 }
