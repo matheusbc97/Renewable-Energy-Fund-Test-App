@@ -18,7 +18,7 @@ const OptionContainer = styled.View`
 function HomeOption({style}: IHomeOptionProps) {
   return (
     <OptionContainer style={style}>
-      <Text>Why should you invest here?</Text>
+      <Text variant="title-small">Why should you invest here?</Text>
     </OptionContainer>
   );
 }

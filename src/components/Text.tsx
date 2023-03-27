@@ -35,19 +35,19 @@ export function Text({
 
     switch (variant) {
       case 'title':
-        textStyle = {fontSize: 18, fontWeight: 'bold'};
+        textStyle = {fontSize: 18, fontFamily: 'Sora600'};
         break;
       case 'title-big':
-        textStyle = {fontSize: 24, fontWeight: 'bold'};
+        textStyle = {fontSize: 24, fontFamily: 'Sora600'};
         break;
       case 'title-small':
-        textStyle = {fontSize: 12, fontWeight: 'bold'};
+        textStyle = {fontSize: 12, fontFamily: 'Sora600'};
         break;
       case 'text':
-        textStyle = {fontSize: 14, fontWeight: 'normal'};
+        textStyle = {fontSize: 14, fontFamily: 'Sora400'};
         break;
       case 'text-small':
-        textStyle = {fontSize: 12, fontWeight: 'normal'};
+        textStyle = {fontSize: 12, fontFamily: 'Sora400'};
         break;
     }
 

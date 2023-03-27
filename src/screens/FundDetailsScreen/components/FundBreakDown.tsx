@@ -20,7 +20,7 @@ export default function FundBreakDown() {
   return (
     <View style={{marginTop: 50}}>
       <Text
-        variant="title-big"
+        variant="title"
         colorVariant="onBackground"
         style={{paddingHorizontal: 20}}>
         Fund Breakdown
