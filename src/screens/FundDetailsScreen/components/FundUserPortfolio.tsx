@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import {Button, Text} from '../../../components';
+import {Button, SvgIcon, Text, YieldText} from '../../../components';
 import {COLORS} from '../../../constants/colors';
 
 const Container = styled.View`
@@ -25,8 +25,6 @@ const PortfolioValue = styled.Text`
   font-size: 32px;
   font-weight: bold;
 `;
-
-const PortfolioPercentage = styled.Text``;
 
 const PortfolioLastPurchase = styled.Text`
   color: ${COLORS.onBackgroundVariant};
@@ -66,15 +64,27 @@ const BuyButton = styled(Button)`
   margin-top: 30px;
 `;
 
+const HeaderContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Title = styled(Text)`
+  margin-left: 7px;
+`;
+
 export default function FundUserPortfolio() {
   return (
     <Container>
-      <Text variant="title">Your Portfolio</Text>
+      <HeaderContainer>
+        <SvgIcon name="Portfolio" color={COLORS.onBackground} />
+        <Title variant="title">Your Portfolio</Title>
+      </HeaderContainer>
 
       <PortfolioValuesRow>
         <PortfolioValuesLeftContainer>
           <PortfolioValue>18 Credits</PortfolioValue>
-          <PortfolioPercentage>8.41%</PortfolioPercentage>
+          <YieldText value={8.42} />
         </PortfolioValuesLeftContainer>
 
         <PortfolioValuesRightContainer>
