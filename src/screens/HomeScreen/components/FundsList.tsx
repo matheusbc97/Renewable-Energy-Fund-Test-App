@@ -6,13 +6,13 @@ import {COLORS} from '../../../constants/colors';
 import {StackNavigationProp} from '../../../navigation';
 
 const FundsTitle = styled(Text)`
-  padding-horizontal: 20;
-  margin-top: 20;
+  padding-horizontal: 20px;
+  margin-top: 20px;
 `;
 
 const FundsFlatList = styled.FlatList`
-  padding-horizontal: 12;
-  margin-top: 15;
+  padding-horizontal: 12px;
+  margin-top: 15px;
 `;
 
 const FundListItemContainer = styled.TouchableOpacity`
