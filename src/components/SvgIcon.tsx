@@ -3,11 +3,12 @@ import {SvgXml} from 'react-native-svg';
 
 import {ARROW_LEFT_ICON} from '../../assets/icons/arrow-left-icon';
 import {COIN_ICON} from '../../assets/icons/coin-icon';
-
+import {DOWN_RIGHT_ARROW_ICON} from '../../assets/icons/down-right-arrow';
 import {HOME_ICON} from '../../assets/icons/home-icon';
 import {PORTFOLIO_ICON} from '../../assets/icons/portfolio-icon';
 import {PROFILE_ICON} from '../../assets/icons/profile-icon';
 import {TRADE_ICON} from '../../assets/icons/trade-icon';
+import {UP_RIGHT_ARROW_ICON} from '../../assets/icons/up-right-arrow';
 
 export type SvgIconName =
   | 'Home'
@@ -15,7 +16,9 @@ export type SvgIconName =
   | 'Portfolio'
   | 'ArrowLeft'
   | 'Profile'
-  | 'Coin';
+  | 'Coin'
+  | 'DownRightArrow'
+  | 'UpRightArrow';
 
 export interface SvgIconProps {
   color?: string;
@@ -38,6 +41,10 @@ function getSvgIcon(routeName: SvgIconName) {
       return PROFILE_ICON;
     case 'Coin':
       return COIN_ICON;
+    case 'DownRightArrow':
+      return DOWN_RIGHT_ARROW_ICON;
+    case 'UpRightArrow':
+      return UP_RIGHT_ARROW_ICON;
   }
 }
 
