@@ -24,52 +24,59 @@ export interface ITextProps {
 
 export type IGetTextStyle = () => TextStyle;
 
+function getTextStyle(
+  variant: ITextVariant,
+  colorVariant: IColorVariant,
+): TextStyle {
+  let textStyle: TextStyle = {};
+
+  switch (variant) {
+    case 'title-big':
+      textStyle = {fontSize: 24, fontFamily: 'Sora600'};
+      break;
+    case 'title':
+      textStyle = {fontSize: 18, fontFamily: 'Sora600'};
+      break;
+    case 'title-small':
+      textStyle = {fontSize: 12, fontFamily: 'Sora600'};
+      break;
+    case 'text':
+      textStyle = {fontSize: 14, fontFamily: 'Sora400'};
+      break;
+    case 'text-small':
+      textStyle = {fontSize: 12, fontFamily: 'Sora400'};
+      break;
+  }
+
+  switch (colorVariant) {
+    case 'onBackground':
+      textStyle = {...textStyle, color: COLORS.onBackground};
+      break;
+    case 'onBackgroundVariant':
+      textStyle = {...textStyle, color: COLORS.onBackgroundVariant};
+      break;
+    case 'onSecondary':
+      textStyle = {...textStyle, color: '#FFF'};
+      break;
+    case 'error':
+      textStyle = {...textStyle, color: COLORS.error};
+      break;
+    case 'onPrimaryVariant':
+      textStyle = {...textStyle, color: COLORS.onPrimaryVariant};
+  }
+
+  return textStyle;
+}
+
 export function Text({
   children,
-  variant,
+  variant = 'text',
   colorVariant = 'onBackground',
   style,
 }: PropsWithChildren<ITextProps>) {
-  const getTextStyle: IGetTextStyle = () => {
-    let textStyle: TextStyle = {};
-
-    switch (variant) {
-      case 'title-big':
-        textStyle = {fontSize: 24, fontFamily: 'Sora600'};
-        break;
-      case 'title':
-        textStyle = {fontSize: 18, fontFamily: 'Sora600'};
-        break;
-      case 'title-small':
-        textStyle = {fontSize: 12, fontFamily: 'Sora600'};
-        break;
-      case 'text':
-        textStyle = {fontSize: 14, fontFamily: 'Sora400'};
-        break;
-      case 'text-small':
-        textStyle = {fontSize: 12, fontFamily: 'Sora400'};
-        break;
-    }
-
-    switch (colorVariant) {
-      case 'onBackground':
-        textStyle = {...textStyle, color: COLORS.onBackground};
-        break;
-      case 'onBackgroundVariant':
-        textStyle = {...textStyle, color: COLORS.onBackgroundVariant};
-        break;
-      case 'onSecondary':
-        textStyle = {...textStyle, color: '#FFF'};
-        break;
-      case 'error':
-        textStyle = {...textStyle, color: COLORS.error};
-        break;
-      case 'onPrimaryVariant':
-        textStyle = {...textStyle, color: COLORS.onPrimaryVariant};
-    }
-
-    return textStyle;
-  };
-
-  return <RNText style={[getTextStyle(), style]}>{children}</RNText>;
+  return (
+    <RNText style={[getTextStyle(variant, colorVariant), style]}>
+      {children}
+    </RNText>
+  );
 }
