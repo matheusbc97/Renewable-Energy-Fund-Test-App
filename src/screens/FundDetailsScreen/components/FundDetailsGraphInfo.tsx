@@ -1,29 +1,10 @@
-import {Dimensions, TouchableOpacity, View} from 'react-native';
-import {Text, YieldText} from '../../../components';
+import {useState} from 'react';
+import {Dimensions, View} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
 import styled from 'styled-components/native';
+
+import {Text, YieldText} from '../../../components';
 import {COLORS} from '../../../constants/colors';
-import {useState} from 'react';
-
-const Container = styled.View`
-  flex-direction: row;
-  padding: 20px;
-  padding-top: 26px;
-  justify-content: space-between;
-`;
-
-export const Info = () => {
-  return (
-    <Container>
-      <Text variant="title-big" colorVariant="onBackgroundVariant">
-        $18.23
-      </Text>
-      <Text variant="title-big" colorVariant="onBackgroundVariant">
-        2022
-      </Text>
-    </Container>
-  );
-};
 
 const dataSetMock = [
   Math.random() * 100,
@@ -44,72 +25,78 @@ const dataSetMock = [
 
 const labels = ['1h', '1d', '1w', '1m', '1y', 'All'];
 
+const Header = styled.View`
+  flex-direction: row;
+  padding-horizontal: 20px;
+  padding-top: 26px;
+  justify-content: space-between;
+`;
+
+const GraphContainer = styled.View`
+  margin-left: -63px;
+  margin-vertical: 8px;
+`;
+
+const LabelsRow = styled.View`
+  flex-direction: row;
+  padding-horizontal: 20px;
+  justify-content: space-between;
+`;
+
+const LabelButton = styled.TouchableOpacity`
+  padding-vertical: 8px;
+  padding-horizontal: 9px;
+  border-radius: 4px;
+`;
+
+const graphMarginLeft = 63;
+
 export default function FundDetailsGraphInfo() {
   const [selectedLabelIndex, setSelectedLabelIndex] = useState(0);
 
   return (
     <View>
-      <View
-        style={{
-          flexDirection: 'row',
-          paddingHorizontal: 20,
-          paddingTop: 26,
-          justifyContent: 'space-between',
-        }}>
+      <Header>
         <View>
           <Text variant="title-big">$18.23</Text>
           <YieldText value={3.51} amount={1.25} />
         </View>
         <Text variant="title-big">2022</Text>
-      </View>
+      </Header>
 
-      <LineChart
-        data={{
-          labels: [],
-          datasets: [
-            {
-              data: dataSetMock,
-            },
-          ],
-        }}
-        width={Dimensions.get('window').width} // from react-native
-        height={220}
-        withHorizontalLabels={false}
-        withDots={false}
-        withHorizontalLines={false}
-        withVerticalLines={false}
-        withShadow={false}
-        chartConfig={{
-          backgroundColor: '#FFF',
-          backgroundGradientFrom: '#FFF',
-          backgroundGradientTo: '#FFF',
-          decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => COLORS.secondary,
-          labelColor: (opacity = 1) => COLORS.onBackgroundVariant,
-          propsForBackgroundLines: {
-            color: '#FFF',
-          },
-        }}
-        style={{
-          marginVertical: 8,
-          borderRadius: 16,
-        }}
-      />
-      <View
-        style={{
-          flexDirection: 'row',
-          paddingHorizontal: 20,
-          justifyContent: 'space-between',
-        }}>
+      <GraphContainer>
+        <LineChart
+          data={{
+            labels: [],
+            datasets: [
+              {
+                data: dataSetMock,
+              },
+            ],
+          }}
+          width={Dimensions.get('window').width + graphMarginLeft + 30} // from react-native
+          height={220}
+          withHorizontalLabels={false}
+          withDots={false}
+          withHorizontalLines={false}
+          withVerticalLines={false}
+          withShadow={false}
+          chartConfig={{
+            backgroundGradientFrom: '#FFF',
+            backgroundGradientTo: '#FFF',
+            color: () => COLORS.secondary,
+            labelColor: () => COLORS.onBackgroundVariant,
+          }}
+        />
+      </GraphContainer>
+
+      <LabelsRow>
         {labels.map((label, index) => {
           const isSelected = selectedLabelIndex === index;
           return (
-            <TouchableOpacity
+            <LabelButton
               onPress={() => setSelectedLabelIndex(index)}
               style={{
-                paddingVertical: 8,
-                paddingHorizontal: 9,
-                borderRadius: 4,
                 backgroundColor: isSelected ? COLORS.primaryVariant : undefined,
               }}>
               <Text
@@ -119,10 +106,10 @@ export default function FundDetailsGraphInfo() {
                 }>
                 {label}
               </Text>
-            </TouchableOpacity>
+            </LabelButton>
           );
         })}
-      </View>
+      </LabelsRow>
     </View>
   );
 }

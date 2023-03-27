@@ -73,6 +73,14 @@ const Title = styled(Text)`
   margin-left: 7px;
 `;
 
+const fundPortfolio = {
+  credits: 18,
+  value: 328.14,
+  yield: 8.42,
+  lastPurchase: '28d ago',
+  retiredCredits: 1,
+};
+
 export default function FundUserPortfolio() {
   return (
     <Container>
@@ -83,13 +91,17 @@ export default function FundUserPortfolio() {
 
       <PortfolioValuesRow>
         <PortfolioValuesLeftContainer>
-          <PortfolioValue>18 Credits</PortfolioValue>
-          <YieldText value={8.42} />
+          <PortfolioValue>
+            {fundPortfolio.credits} Credit{fundPortfolio.credits !== 1 && 's'}
+          </PortfolioValue>
+          <YieldText value={fundPortfolio.yield} />
         </PortfolioValuesLeftContainer>
 
         <PortfolioValuesRightContainer>
-          <PortfolioValue>$328.14</PortfolioValue>
-          <PortfolioLastPurchase>Last purchase 28d ago</PortfolioLastPurchase>
+          <PortfolioValue>${fundPortfolio.value}</PortfolioValue>
+          <PortfolioLastPurchase>
+            Last purchase {fundPortfolio.lastPurchase}
+          </PortfolioLastPurchase>
         </PortfolioValuesRightContainer>
       </PortfolioValuesRow>
 
@@ -102,9 +114,12 @@ export default function FundUserPortfolio() {
         />
       </ButtonsContainer>
 
-      <RetiredCreditsText>
-        You've previously retired 28 credits of this asset
-      </RetiredCreditsText>
+      {Boolean(fundPortfolio.retiredCredits) && (
+        <RetiredCreditsText>
+          You've previously retired {fundPortfolio.retiredCredits} credit
+          {fundPortfolio.retiredCredits > 1 && 's'} of this asset
+        </RetiredCreditsText>
+      )}
 
       <DisclaimerContainer>
         <DisclaimerText>
