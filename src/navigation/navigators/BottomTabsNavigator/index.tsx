@@ -1,15 +1,24 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 
 import {HomeScreen} from '../../../screens';
 import {BottomTabsNavigatorParams} from './types/BottomTabsNavigatorParams';
 import {COLORS} from '../../../constants/colors';
-import {SvgIconName, SvgIcon} from '../../../components';
+import {SvgIconName, SvgIcon, Text} from '../../../components';
 
 const Tab = createBottomTabNavigator<BottomTabsNavigatorParams>();
 
 function EmptyScreen() {
-  return <View />;
+  return (
+    <SafeAreaView>
+      <Text>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero sequi
+        necessitatibus deserunt quas sed! Corrupti, minus quis incidunt
+        laboriosam at cum cumque quidem voluptate eligendi, ducimus blanditiis
+        nemo suscipit perspiciatis.
+      </Text>
+    </SafeAreaView>
+  );
 }
 
 const renderIcon = (iconName: SvgIconName) => {
