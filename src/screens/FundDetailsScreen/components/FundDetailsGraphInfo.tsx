@@ -1,9 +1,8 @@
 import {useState} from 'react';
 import {Dimensions, View} from 'react-native';
-import {LineChart} from 'react-native-chart-kit';
 import styled from 'styled-components/native';
 
-import {Text, YieldText} from '../../../components';
+import {Text, YieldText, LineChart} from '../../../components';
 import {COLORS} from '../../../constants/colors';
 
 const dataSetMock = [
@@ -33,7 +32,6 @@ const Header = styled.View`
 `;
 
 const GraphContainer = styled.View`
-  margin-left: -63px;
   margin-vertical: 8px;
 `;
 
@@ -48,8 +46,6 @@ const LabelButton = styled.TouchableOpacity`
   padding-horizontal: 9px;
   border-radius: 4px;
 `;
-
-const graphMarginLeft = 63;
 
 export default function FundDetailsGraphInfo() {
   const [selectedLabelIndex, setSelectedLabelIndex] = useState(0);
@@ -66,27 +62,9 @@ export default function FundDetailsGraphInfo() {
 
       <GraphContainer>
         <LineChart
-          data={{
-            labels: [],
-            datasets: [
-              {
-                data: dataSetMock,
-              },
-            ],
-          }}
-          width={Dimensions.get('window').width + graphMarginLeft + 30} // from react-native
+          dataSet={dataSetMock}
           height={220}
-          withHorizontalLabels={false}
-          withDots={false}
-          withHorizontalLines={false}
-          withVerticalLines={false}
-          withShadow={false}
-          chartConfig={{
-            backgroundGradientFrom: '#FFF',
-            backgroundGradientTo: '#FFF',
-            color: () => COLORS.secondary,
-            labelColor: () => COLORS.onBackgroundVariant,
-          }}
+          width={Dimensions.get('window').width}
         />
       </GraphContainer>
 

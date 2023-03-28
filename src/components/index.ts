@@ -13,3 +13,4 @@ export * from './HorizontalSeparator';
 export * from './LabeledValueWithInfoButton';
 export * from './SvgIcon';
 export * from './YieldText';
+export * from './LineChart';

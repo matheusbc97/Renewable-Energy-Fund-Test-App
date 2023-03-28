@@ -1,9 +1,9 @@
 import {useNavigation} from '@react-navigation/native';
 import {FlatList, View} from 'react-native';
 import styled from 'styled-components/native';
-import {Text, YieldText} from '../../../components';
+import {LineChart, Text, YieldText} from '../../../components';
 import {COLORS} from '../../../constants/colors';
-import {fundsAllMock, fundsMock} from '../../../mocks/funds';
+import {fundsAllMock} from '../../../mocks/funds';
 import {StackNavigationProp} from '../../../navigation';
 
 const FundsTitle = styled(Text)`
@@ -42,17 +42,38 @@ export function FundsList() {
         data={fundsAllMock.map(item => item.fund)}
         horizontal
         keyExtractor={fund => fund.id.toString()}
-        renderItem={({item: fund}) => (
-          <FundListItemContainer
-            onPress={() => navigation.navigate('FundDetails', {fund})}>
-            <Text variant="title-small">{fund.name}</Text>
-            <View style={{flex: 1}} />
-            <Footer>
-              <Text>${fund.value}</Text>
-              <YieldText value={fund.yield} />
-            </Footer>
-          </FundListItemContainer>
-        )}
+        renderItem={({item: fund}) => {
+          const dataSetMock = [
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+            Math.random() * 100,
+          ];
+
+          return (
+            <FundListItemContainer
+              onPress={() => navigation.navigate('FundDetails', {fund})}>
+              <Text variant="title-small">{fund.name}</Text>
+              <View style={{flex: 1}}>
+                <LineChart dataSet={dataSetMock} height={100} width={100} />
+              </View>
+              <Footer>
+                <Text>${fund.value}</Text>
+                <YieldText value={fund.yield} />
+              </Footer>
+            </FundListItemContainer>
+          );
+        }}
       />
     </View>
   );

@@ -22,9 +22,6 @@ export function FundDetailsScreen({
     item => item.fundId === route.params.fund.id,
   )!;
 
-  console.log('fundAllInfos', fundAllInfos);
-  console.log('route.params.fund', route.params.fund);
-
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
