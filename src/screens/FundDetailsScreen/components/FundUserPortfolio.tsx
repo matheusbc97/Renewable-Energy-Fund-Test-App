@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 import {Button, SvgIcon, Text, YieldText} from '../../../components';
 import {COLORS} from '../../../constants/colors';
+import {useFundDetailsSelector} from '../stores/fund-details';
 
 const Container = styled.View`
   padding-horizontal: 20px;
@@ -73,15 +74,9 @@ const Title = styled(Text)`
   margin-left: 7px;
 `;
 
-const fundPortfolio = {
-  credits: 18,
-  value: 328.14,
-  yield: 8.42,
-  lastPurchase: '28d ago',
-  retiredCredits: 1,
-};
-
 export default function FundUserPortfolio() {
+  const fundPortfolio = useFundDetailsSelector(state => state.userPortfolio);
+
   return (
     <Container>
       <HeaderContainer>

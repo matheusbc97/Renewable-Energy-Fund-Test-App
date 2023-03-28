@@ -1,8 +1,9 @@
 import {useNavigation} from '@react-navigation/native';
-import {View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import styled from 'styled-components/native';
 import {Text, YieldText} from '../../../components';
 import {COLORS} from '../../../constants/colors';
+import {fundsAllMock, fundsMock} from '../../../mocks/funds';
 import {StackNavigationProp} from '../../../navigation';
 
 const FundsTitle = styled(Text)`
@@ -13,7 +14,7 @@ const FundsTitle = styled(Text)`
 const FundsFlatList = styled.FlatList`
   padding-horizontal: 12px;
   margin-top: 15px;
-`;
+` as unknown as typeof FlatList;
 
 const FundListItemContainer = styled.TouchableOpacity`
   border-width: 1px;
@@ -38,16 +39,17 @@ export function FundsList() {
     <View>
       <FundsTitle variant="title">Funds</FundsTitle>
       <FundsFlatList
-        data={[1, 2, 3, 4, 5, 6, 7, 8]}
+        data={fundsAllMock.map(item => item.fund)}
         horizontal
-        renderItem={() => (
+        keyExtractor={fund => fund.id.toString()}
+        renderItem={({item: fund}) => (
           <FundListItemContainer
-            onPress={() => navigation.navigate('FundDetails')}>
-            <Text variant="title-small">Wind Fund</Text>
+            onPress={() => navigation.navigate('FundDetails', {fund})}>
+            <Text variant="title-small">{fund.name}</Text>
             <View style={{flex: 1}} />
             <Footer>
-              <Text>$1,245.23</Text>
-              <YieldText value={0.25} />
+              <Text>${fund.value}</Text>
+              <YieldText value={fund.yield} />
             </Footer>
           </FundListItemContainer>
         )}

@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 import {LabeledValueWithInfoButton, Text} from '../../../components';
+import {useFundDetailsSelector} from '../stores/fund-details';
 
 const Container = styled.View`
   padding-horizontal: 20px;
@@ -17,29 +18,9 @@ const LabeledValue = styled(LabeledValueWithInfoButton)`
   justify-content: space-between;
 `;
 
-interface Fund {
-  name: string;
-  value: number;
-  aum: number;
-  issueDate: string;
-  vintageRange: string;
-  ter: number;
-  priceAtClose: number;
-  priceAtOpen: number;
-}
-
-const fund: Fund = {
-  name: 'Wind Fund',
-  value: 18.23,
-  aum: 430.88,
-  issueDate: '2020-01-01',
-  vintageRange: '2010-2020',
-  ter: 0.25,
-  priceAtClose: 1.25,
-  priceAtOpen: 1.13,
-};
-
 export default function FundDetailsInfoAndStats() {
+  const fund = useFundDetailsSelector(state => state.fund);
+
   return (
     <Container>
       <Text variant="title">Info & Stats</Text>

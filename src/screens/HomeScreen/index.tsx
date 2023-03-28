@@ -5,7 +5,7 @@ import HomeBanner from './components/HomeBanner';
 import HomeHeader from './components/HomeHeader';
 import HomeOptions from './components/HomeOptions';
 
-export function HomeScreen() {
+export function HomeScreen({}) {
   return (
     <SafeAreaView>
       <ScrollView>

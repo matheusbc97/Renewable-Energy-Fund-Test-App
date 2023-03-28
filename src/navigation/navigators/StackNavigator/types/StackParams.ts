@@ -1,6 +1,10 @@
+import {IFund} from '../../../../types';
+
 export type StackParams = {
   Login: undefined;
   Register: undefined;
   BottomTabsNavigator: undefined;
-  FundDetails: undefined;
+  FundDetails: {
+    fund: IFund;
+  };
 };

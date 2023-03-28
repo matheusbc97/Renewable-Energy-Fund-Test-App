@@ -78,7 +78,11 @@ function StackNavigator() {
         component={BottomTabsNavigator}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="FundDetails" component={FundDetailsScreen} />
+      <Stack.Screen
+        name="FundDetails"
+        component={FundDetailsScreen}
+        options={{title: 'FundDetails'}}
+      />
     </Stack.Navigator>
   );
 }
